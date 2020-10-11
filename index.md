@@ -111,6 +111,15 @@ BLEU-4: 0.049863
 
 **2. Evaluation of VGG19 Extracted Features**
 
+The best epoch for the model trained on VGG19 extracted features was the first epoch (out of 5) with the following score:
+
+BLEU-1: 0.493677
+
+BLEU-2: 0.234108
+
+BLEU-3: 0.131691
+
+BLEU-4: 0.043234
 
 **3. Evaluation of Inception Resnet V2 Extracted Features**
 
