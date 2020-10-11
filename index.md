@@ -20,8 +20,6 @@ The first part of this project is extracting features of images using pre-traine
 
 Created in 2014, VGG16 is a Convolutional Neural Network (CNN) model used for image recognition. The main differences with previously developed CNN models lie in its architecture: it uses a combination of very small convolution filters (3x3 pixels) with a very deep network containing 16 layers for weights and parameter learning, in contrast with previous CNN models like AlexNet, which used larger convolution filter kernel sizes but fewer layers.
 
-Convolution filters are xxx
-
 The VGG16 architecture is detailed in the diagram below:
 
 There are 13 convolutional layers (in black) and 3 Dense (i.e. fully connected) layers.
