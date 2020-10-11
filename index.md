@@ -88,7 +88,7 @@ BLEU-4 - assigns 25% to 1-gram, 2-gram, 3-gram and 4-gram matches.
 
 As we saved a version of each model after each training epoch, we were able to evaluate the optimum number of epochs for each model as well.
 
-** 1. Evaluation of VGG16 Extracted Features**
+**1. Evaluation of VGG16 Extracted Features**
 
 The best epoch for the model trained on VGG16 extracted image features was epoch 3 (out of 5 epochs) with the following score:
 
@@ -102,10 +102,10 @@ BLEU-4: 0.049863
 
 
 
-** 2. Evaluation of VGG19 Extracted Features**
+**2. Evaluation of VGG19 Extracted Features**
 
 
-** 3. Evaluation of Inception Resnet V2 Extracted Features**
+**3. Evaluation of Inception Resnet V2 Extracted Features**
 
 The best epoch for the model trained on ResNet extracted features was the first epoch (out of 10), with the following score:
 
@@ -118,6 +118,8 @@ BLEU-4: 0.041060
 
 ### Conclusion
 Challenges:
+
 Future Work:
+
 Which was the best model? Not much difference in performance?
 
