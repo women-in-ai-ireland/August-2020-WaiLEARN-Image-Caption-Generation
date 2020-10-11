@@ -12,11 +12,11 @@ The dataset is available at https://www.kaggle.com/shadabhussain/flickr8k
 
 Since this is an image captioning project, there are two elements - Images and Texts. Therefore, we need to prepare both in order to train a model that could learn to generate captions by identifying what lies in the image.
 
-#### Image Feature Extraction
+### 1. Image Feature Extraction
 
 The first part of this project is extracting features of images using pre-trained CNN models for image recognition. We used VGG16, VGG19 and Inception_Resnet_V2 for comparing performances for these three CNN architectures trained on ImageNet.
 
-1. VGG16
+#### VGG16
 
 Created in 2014, VGG16 is a Convolutional Neural Network (CNN) model used for image recognition. The main differences with previously developed CNN models lie in its architecture: it uses a combination of very small convolution filters (3x3 pixels) with a very deep network containing 16 layers for weights and parameter learning, in contrast with previous CNN models like AlexNet, which used larger convolution filter kernel sizes but fewer layers.
 
@@ -34,9 +34,47 @@ While this model is normally used for image classification tasks (with 1000 clas
 One of the drawbacks of this model is its large size, which I was unable to run on my own machine. Instead, I executed it using a Google Colab notebook and it took approx. 2 hours to complete (with the Flickr8k image dataset).
 
 
-2. VGG19
+#### VGG19
 
-3. Inception Resnet 
+#### Inception Resnet 
+
+### 2. Captions Data Preparation
+
+The second part of data preparation is cleaning and transforming the captions or text Imagedata as an input to an LSTM. In the process, we conducted an exploratory data analysis of the texts as well to understand what sort of texts or images are there in the Flickr dataset.
+
+#### Data Cleaning
+
+Initially we began to work on the dataset containing 30,000 images, and once we introduced the models at a later stage of the project, we decided to use the Flickr8k subset of 8,000 images because the processing time was huge for Google Collab.
+
+The captions prepared for LSTM input were cleaned by turning all captions to lowercase and by annotating start and end of each sequence. For VGG16 we turned the image names with .jpg into image ids.  
+
+#### Exploratory Data Analysis - Word Distributions
+
+The first frequency distribution analysis of the words listed the words “in”, “the”, “on”, “man”, “and” as the most commonly occurring ones. Prepositions in any language usually belong in the realm of stop words. Stopwords can be described as the short function words, or the words that have little lexical meaning. As a preprocessing step, stop words are commonly filtered out. 
+
+NLTK.corpus contains a stopwords module that is used to easily call and eliminate function words in English language. Finally, after removing the stop words our graph of the 20 most common words in the dataset looks like this:
+
+From this graph we can get an initial understanding of what the captions generally will be describing: people, young men and women, the color of their clothes, and their actions. 
+
+A weighted list of words can be represented in a word cloud, where the size of each word represents the number of its occurrences in the dataset.
+
+#### Token Encoding and Sequence Modelling
+
+### Training the Image Captioning Decoder Model
+
+#### 1. The Decoder Model
+
+#### 2. Progressive Loading using Generator Functions
+
+Deep learning model training is a time consuming and infrastructurally expensive job which we experienced first with 30k images in the Flickr Dataset and so we reduced that to 8k images only. We used Google Collab to speed up performances using 12GB RAM allocation with 30 GB disk space available. Still, preparing the input & output sequences and corresponding the image features for the decoder model. Therefore, we started using generator functions and leveraged [Keras.fit_generator()] (https://www.geeksforgeeks.org/keras-fit-and-keras-fit_generator/)
+
+Keras.fit_generator() is used when either we have a huge dataset to fit into our memory or when data augmentation needs to be applied which precisely describes our case. With the progressive loading mechanism, the input creation part was a model training. Though model training without progressive loading couldn't be tested for time consumption, the model training time with progressive loading took approximately 1.5 hours for five epochs and approx. 3.5 hours for 10 epochs using 6k training instances.
+
+#### 3. AWS Sagemaker to Scale Training Instances
+Since Google Collab failed to run for a long time due to session expirations, we resorted to AWS Sagemaker for running our notebook. We used ml.t3.xlarge notebook (4 vCPU & 16 GB Memory) with 50 GB EBS Volume Size. With 5 GB EBS, the notebook was running into memory issues before progressive loading. To find more about using the right notebook instances and associated pricing, refer https://aws.amazon.com/sagemaker/pricing/.
+
+
+
 
 
 
