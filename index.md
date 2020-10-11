@@ -27,6 +27,8 @@ The VGG16 architecture is detailed in the diagram below:
 There are 13 convolutional layers (in black) and 3 Dense (i.e. fully connected) layers.
 The max pooling layers (in red) are there to obtain informative features from the convolutional filters’ output at a series of stages in the architecture. The final softmax layer determines which class the image belongs to.
 
+![Image](https://www.researchgate.net/publication/328966158/figure/fig2/AS:693278764720129@1542301946576/An-overview-of-the-VGG-16-model-architecture-this-model-uses-simple-convolutional-blocks.png)
+
 For this project, we implemented VGG16 using Keras and the default weights available from its pre-training on the ImageNet image dataset. The first step was to reshape the images to fit the (224px x 224px x 3 channels) input size required by the model before applying the preprocessing function from Keras that works specifically with VGG16. Once the pre-processing steps were completed, the images were ready to use with the VGG16 model.
 
 While this model is normally used for image classification tasks (with 1000 classes available as output), we held off on the final layer and instead used the features extracted at the penultimate layer as input to the final image captioning model.
