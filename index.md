@@ -29,12 +29,13 @@ The max pooling layers (in red) are there to obtain informative features from th
 
 ![Image](https://www.researchgate.net/publication/328966158/figure/fig2/AS:693278764720129@1542301946576/An-overview-of-the-VGG-16-model-architecture-this-model-uses-simple-convolutional-blocks.png)
 
+Image Source: [www.researchgate.net](https://www.researchgate.net/publication/328966158_A_review_of_deep_learning_in_the_study_of_materials_degradation)
+
 For this project, we implemented VGG16 using Keras and the default weights available from its pre-training on the ImageNet image dataset. The first step was to reshape the images to fit the (224px x 224px x 3 channels) input size required by the model before applying the preprocessing function from Keras that works specifically with VGG16. Once the pre-processing steps were completed, the images were ready to use with the VGG16 model.
 
 While this model is normally used for image classification tasks (with 1000 classes available as output), we held off on the final layer and instead used the features extracted at the penultimate layer as input to the final image captioning model.
 
 One of the drawbacks of this model is its large size, which I was unable to run on my own machine. Instead, I executed it using a Google Colab notebook and it took approx. 2 hours to complete (with the Flickr8k image dataset).
-
 
 #### VGG19
 
@@ -75,24 +76,48 @@ Keras.fit_generator() is used when either we have a huge dataset to fit into our
 #### 3. AWS Sagemaker to Scale Training Instances
 Since Google Collab failed to run for a long time due to session expirations, we resorted to AWS Sagemaker for running our notebook. We used ml.t3.xlarge notebook (4 vCPU & 16 GB Memory) with 50 GB EBS Volume Size. With 5 GB EBS, the notebook was running into memory issues before progressive loading. To find more about using the right notebook instances and associated pricing, refer https://aws.amazon.com/sagemaker/pricing/.
 
+### Results
+
+The last step of the project was to evaluate and compare the performance of the models on a hold out test set of 1000 images, using BLEU scores as a performance metric.
+
+BLEU scores can be used to compare the closeness of a sentence to another reference sentence. The closeness is measured in terms of the number of matching tokens in both sentences and is computed by matching n-grams (i.e. matching individual words as well as pairs and sets of words), disregarding word order. A set of 4 cumulative BLEU scores is calculated for each model:
+BLEU-1 - assigns the full score to matching 1-grams
+BLEU-2 - assigns 50% to 1-gram and 2-gram matches respectively
+BLEU-3 - assigns 33% to 1-gram, 2-gram and 3-gram matches respectively
+BLEU-4 - assigns 25% to 1-gram, 2-gram, 3-gram and 4-gram matches.
+
+As we saved a version of each model after each training epoch, we were able to evaluate the optimum number of epochs for each model as well.
+
+** 1. Evaluation of VGG16 Extracted Features**
+
+The best epoch for the model trained on VGG16 extracted image features was epoch 3 (out of 5 epochs) with the following score:
+
+BLEU-1: 0.492964
+BLEU-2: 0.238065
+BLEU-3: 0.139947
+BLEU-4: 0.049863
+
+**Demo:**
 
 
 
 
+** 2. Evaluation of VGG19 Extracted Features**
 
 
+** 3. Evaluation of Inception Resnet V2 Extracted Features**
 
-**Bold** and _Italic_ and `Code` text
+The best epoch for the model trained on ResNet extracted features was the first epoch (out of 10), with the following score:
 
-[Link](url) and ![Image](src)
-```
+BLEU-1: 0.480941
+BLEU-2: 0.221203
+BLEU-3: 0.126065
+BLEU-4: 0.041060
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**Demo**
 
-### Jekyll Themes
+### Conclusion
+Challenges:
+Future Work:
+Which was the best model? Not much difference in performance?
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
