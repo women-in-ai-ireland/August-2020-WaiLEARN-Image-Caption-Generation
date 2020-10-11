@@ -81,9 +81,13 @@ Since Google Collab failed to run for a long time due to session expirations, we
 The last step of the project was to evaluate and compare the performance of the models on a hold out test set of 1000 images, using BLEU scores as a performance metric.
 
 BLEU scores can be used to compare the closeness of a sentence to another reference sentence. The closeness is measured in terms of the number of matching tokens in both sentences and is computed by matching n-grams (i.e. matching individual words as well as pairs and sets of words), disregarding word order. A set of 4 cumulative BLEU scores is calculated for each model:
+
 BLEU-1 - assigns the full score to matching 1-grams
+
 BLEU-2 - assigns 50% to 1-gram and 2-gram matches respectively
+
 BLEU-3 - assigns 33% to 1-gram, 2-gram and 3-gram matches respectively
+
 BLEU-4 - assigns 25% to 1-gram, 2-gram, 3-gram and 4-gram matches.
 
 As we saved a version of each model after each training epoch, we were able to evaluate the optimum number of epochs for each model as well.
@@ -93,8 +97,11 @@ As we saved a version of each model after each training epoch, we were able to e
 The best epoch for the model trained on VGG16 extracted image features was epoch 3 (out of 5 epochs) with the following score:
 
 BLEU-1: 0.492964
+
 BLEU-2: 0.238065
+
 BLEU-3: 0.139947
+
 BLEU-4: 0.049863
 
 **Demo:**
@@ -110,8 +117,11 @@ BLEU-4: 0.049863
 The best epoch for the model trained on ResNet extracted features was the first epoch (out of 10), with the following score:
 
 BLEU-1: 0.480941
+
 BLEU-2: 0.221203
+
 BLEU-3: 0.126065
+
 BLEU-4: 0.041060
 
 **Demo**
