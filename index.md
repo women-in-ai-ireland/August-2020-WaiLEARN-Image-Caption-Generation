@@ -58,6 +58,7 @@ NLTK.corpus contains a stopwords module that is used to easily call and eliminat
 From this graph we can get an initial understanding of what the captions generally will be describing: people, young men and women, the color of their clothes, and their actions. 
 
 A weighted list of words can be represented in a word cloud, where the size of each word represents the number of its occurrences in the dataset.
+![image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/Wordcloud.png)
 
 #### Token Encoding and Sequence Modelling
 
