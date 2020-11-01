@@ -158,6 +158,7 @@ BLEU-4: 0.041060
 
 ### Conclusion
 
+The project was really helpful in understanding how CNNs work to identify image contents. We used pre-trained models like VGG and Inception_Resnet_v2 to extract image features and so we learnt about their architectures and how they work. To train and predict image captions, we also worked on implementing LSTM and some basic cleaning texts using Natural Lanaguage Processing techniques. One the basic challenges all the way was to process so many images and extracted features which forced us to move towards cloud infrastructure. Most of us also were coding for the first time with Keras and thus this was a great hands-on practice on coding deep learning models using Python & Keras modules. The overall results were not very good and so, in terms of future work, the model could be trained on 30k images dataset to improve the results.
 
 ### References
 
