@@ -1,6 +1,7 @@
 ## Welcome to Image Captioning with Keras Project
 
 ### Introduction
+Humans can easily describe what an image is about, but this task so far has been very difficult for machines to perform. Just a few years ago, this kind of task was considered inconceivable to be done by a machine. With the incredible evolution of deep learning and recurrent neural networks that combine computer vision and language processing, image caption generator combined models can recognise components of an image and describe them in English language. 
 
 ### Dataset Description
 
@@ -37,6 +38,10 @@ One of the drawbacks of this model is its large size, which I was unable to run 
 
 #### VGG19
 
+VGG is an innovative object-recognition model that supports up to 19 layers. It is an improvement over VGG16 where the number of convolutional layers are different.Built as a deep CNN, VGG 19 has outperformed baselines on many tasks and datasets apart from ImageNet. VGG is now still one of the most used image-recognition architectures. It is built by stacking convolutional layers, but due to issues like diminishing gradient model’s depth is limited. The VGG-19 is trained on more than a million images and can classify images into 1000 object categories, for example, keyboard, mouse, pencil, and many animals. As a result, the model has learned rich feature representations for a wide range of images. It is a 19-layer (16 conv., 3 fully-connected) CNN that strictly used 3×3 filters with stride and pad of 1, along with 2×2 max-pooling layers with stride 2, called VGG-19 model.
+
+The VGG-19 model takes a color image as input, a 3-channel image is created by assigning (red, green, blue) channels, respectively. All regional images are cropped from the 3-channel image and scaled to 224×224×3 for VGG-19 training and testing. In this way, subtle changes over time are reflected in this 3-channel image and featured in the adapted VGG-19 model.
+
 #### Inception Resnet 
 
 ### 2. Captions Data Preparation
@@ -55,6 +60,8 @@ The first frequency distribution analysis of the words listed the words “in”
 
 NLTK.corpus contains a stopwords module that is used to easily call and eliminate function words in English language. Finally, after removing the stop words our graph of the 20 most common words in the dataset looks like this:
 
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/Wordcloud.png?raw=true)
+
 From this graph we can get an initial understanding of what the captions generally will be describing: people, young men and women, the color of their clothes, and their actions. 
 
 A weighted list of words can be represented in a word cloud, where the size of each word represents the number of its occurrences in the dataset.
@@ -62,6 +69,8 @@ A weighted list of words can be represented in a word cloud, where the size of e
 ![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/Wordcloud.png?raw=true)
 
 #### Token Encoding and Sequence Modelling
+
+
 
 ### Training the Image Captioning Decoder Model
 
