@@ -58,9 +58,11 @@ The captions prepared for LSTM input were cleaned by turning all captions to low
 
 The first frequency distribution analysis of the words listed the words “in”, “the”, “on”, “man”, “and” as the most commonly occurring ones. Prepositions in any language usually belong in the realm of stop words. Stopwords can be described as the short function words, or the words that have little lexical meaning. As a preprocessing step, stop words are commonly filtered out. 
 
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/worddist_raw.png?raw=true)
+
 NLTK.corpus contains a stopwords module that is used to easily call and eliminate function words in English language. Finally, after removing the stop words our graph of the 20 most common words in the dataset looks like this:
 
-![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/Wordcloud.png?raw=true)
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/worddist_no_stopwords.png?raw=true)
 
 From this graph we can get an initial understanding of what the captions generally will be describing: people, young men and women, the color of their clothes, and their actions. 
 
@@ -70,7 +72,13 @@ A weighted list of words can be represented in a word cloud, where the size of e
 
 #### Token Encoding and Sequence Modelling
 
+All Recurrent Neural Networks (RNNs) have a chain of repeating modules of neural networks. LSTM has an advantage compared to the traditional RNN. 
 
+One of the main pain points of RNNs is short-term memory. If a sequence is long enough, they’ll have a hard time carrying information from earlier steps to the later ones. In this way RNN’s tend to leave out important information. 
+
+LSTMs are specifically designed to tackle and avoid the long-term dependency problem, thus carrying the information from previous steps is what they are designed to do. They contain  “gates”, internal mechanisms that regulate the flow of information and determine which information is important to retain and leave out the non-important information.
+
+For each image there are five captions which we turned into sequences by annotating start and end of each sequence. “startseq” starts the caption generation process. It acts as our first word when feature extracted image vector is fed to decoder. ”enseq” tells the decoder when to stop. The model will stop predicting the next word as soon as endseq appears or we have predicted all words from the train dictionary. Once this was done, we used Keras Tokenizer to transform texts to a sequence of integers.
 
 ### Training the Image Captioning Decoder Model
 
@@ -130,6 +138,9 @@ BLEU-3: 0.131691
 
 BLEU-4: 0.043234
 
+**Demo**
+
+
 **3. Evaluation of Inception Resnet V2 Extracted Features**
 
 The best epoch for the model trained on ResNet extracted features was the first epoch (out of 10), with the following score:
@@ -144,12 +155,9 @@ BLEU-4: 0.041060
 
 **Demo**
 
+
 ### Conclusion
-Challenges:
 
-Future Work:
-
-Which was the best model? Not much difference in performance?
 
 ### References
 
