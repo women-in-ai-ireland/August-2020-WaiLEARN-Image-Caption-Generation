@@ -127,7 +127,6 @@ BLEU-3: 0.139947
 
 BLEU-4: 0.049863
 
-**Demo:**
 ![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/vgg16_results.png?raw=true)
 
 
@@ -143,7 +142,6 @@ BLEU-3: 0.131691
 
 BLEU-4: 0.043234
 
-**Demo**
 ![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/vgg19_results.png?raw=true)
 
 **3. Evaluation of Inception Resnet V2 Extracted Features**
@@ -158,7 +156,6 @@ BLEU-3: 0.126065
 
 BLEU-4: 0.041060
 
-**Demo**
 ![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/inception_results.png?raw=true)
 
 ### Conclusion
