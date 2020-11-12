@@ -48,7 +48,7 @@ Both the Inception and Residual networks are SOTA architectures, which have show
 Inception-ResNet-v2 is a convolutional neural network that is trained on the ImageNet database. The network is 164 layers deep. The network has an image input size of 299-by-299 and the output is a list of estimated class probabilities. It is a combination of the Inception structure and the Residual connection. In the Inception-Resnet block, multiple sized convolutional filters are combined with residual connections. The usage of residual connections not only avoids the degradation problem caused by deep structures but also reduces the training time. The figure shows the basic network architecture of Inception-Resnet-v2.
 
 ![Image](https://1.bp.blogspot.com/-O7AznVGY9js/V8cV_wKKsMI/AAAAAAAABKQ/maO7n2w3dT4Pkcmk7wgGqiSX5FUW2sfZgCLcB/s1600/image00.png)
-Image Source: https://ai.googleblog.com/2016/08/improving-inception-and-image.html
+Image Source: [https://ai.googleblog.com/2016/08/improving-inception-and-image.html](https://ai.googleblog.com/2016/08/improving-inception-and-image.html)
 ### 2. Captions Data Preparation
 
 The second part of data preparation is cleaning and transforming the captions or text Imagedata as an input to an LSTM. In the process, we conducted an exploratory data analysis of the texts as well to understand what sort of texts or images are there in the Flickr dataset.
@@ -89,6 +89,7 @@ For each image there are five captions which we turned into sequences by annotat
 
 #### 1. The Decoder Model
 
+
 #### 2. Progressive Loading using Generator Functions
 
 Deep learning model training is a time consuming and infrastructurally expensive job which we experienced first with 30k images in the Flickr Dataset and so we reduced that to 8k images only. We used Google Collab to speed up performances using 12GB RAM allocation with 30 GB disk space available. Still, preparing the input & output sequences and corresponding the image features for the decoder model. Therefore, we started using generator functions and leveraged [Keras.fit_generator()] (https://www.geeksforgeeks.org/keras-fit-and-keras-fit_generator/)
@@ -127,8 +128,7 @@ BLEU-3: 0.139947
 BLEU-4: 0.049863
 
 **Demo:**
-
-
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/vgg16_results.png?raw=true)
 
 
 **2. Evaluation of VGG19 Extracted Features**
@@ -144,7 +144,7 @@ BLEU-3: 0.131691
 BLEU-4: 0.043234
 
 **Demo**
-
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/vgg19_results.png?raw=true)
 
 **3. Evaluation of Inception Resnet V2 Extracted Features**
 
@@ -159,7 +159,7 @@ BLEU-3: 0.126065
 BLEU-4: 0.041060
 
 **Demo**
-
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/inception_results.png?raw=true)
 
 ### Conclusion
 
