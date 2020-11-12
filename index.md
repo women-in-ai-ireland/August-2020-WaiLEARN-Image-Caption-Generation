@@ -43,7 +43,12 @@ VGG is an innovative object-recognition model that supports up to 19 layers. It 
 The VGG-19 model takes a color image as input, a 3-channel image is created by assigning (red, green, blue) channels, respectively. All regional images are cropped from the 3-channel image and scaled to 224×224×3 for VGG-19 training and testing. In this way, subtle changes over time are reflected in this 3-channel image and featured in the adapted VGG-19 model.
 
 #### Inception Resnet 
+Both the Inception and Residual networks are SOTA architectures, which have shown very good performance with relatively low computational cost. Inception-ResNet combines the two architectures to further boost the performance.
 
+Inception-ResNet-v2 is a convolutional neural network that is trained on the ImageNet database. The network is 164 layers deep. The network has an image input size of 299-by-299 and the output is a list of estimated class probabilities. It is a combination of the Inception structure and the Residual connection. In the Inception-Resnet block, multiple sized convolutional filters are combined with residual connections. The usage of residual connections not only avoids the degradation problem caused by deep structures but also reduces the training time. The figure shows the basic network architecture of Inception-Resnet-v2.
+
+![Image](https://1.bp.blogspot.com/-O7AznVGY9js/V8cV_wKKsMI/AAAAAAAABKQ/maO7n2w3dT4Pkcmk7wgGqiSX5FUW2sfZgCLcB/s1600/image00.png)
+Image Source: https://ai.googleblog.com/2016/08/improving-inception-and-image.html
 ### 2. Captions Data Preparation
 
 The second part of data preparation is cleaning and transforming the captions or text Imagedata as an input to an LSTM. In the process, we conducted an exploratory data analysis of the texts as well to understand what sort of texts or images are there in the Flickr dataset.
@@ -166,5 +171,5 @@ The project was really helpful in understanding how CNNs work to identify image 
 2. [Image Captioning With Flickr8k Dataset & BLEU](https://medium.com/@raman.shinde15/image-captioning-with-flickr8k-dataset-bleu-4bcba0b52926)
 3. [Image captioning with visual attention](https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/text/image_captioning.ipynb)
 4. [TensorFlow Tutorial #22 Image Captioning](https://colab.research.google.com/github/Hvass-Labs/TensorFlow-Tutorials/blob/master/22_Image_Captioning.ipynb)
-
-
+5. [InceptionResNetV2 Simple Introduction](https://medium.com/@zahraelhamraoui1997/inceptionresnetv2-simple-introduction-9a2000edcdb6)
+6. [Building Inception-Resnet-V2 in Keras from scratch](https://medium.com/the-owl/building-inception-resnet-v2-in-keras-from-scratch-a3546c4d93f0)
