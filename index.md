@@ -23,7 +23,7 @@ Created in 2014, VGG16 is a Convolutional Neural Network (CNN) model used for im
 
 The VGG16 architecture is detailed in the diagram below:
 
-There are 13 convolutional layers (in black) and 3 Dense (i.e. fully connected) layers.
+There are 13 convolutional layers (in black) and 3 (i.e. fully connected) layers.
 The max pooling layers (in red) are there to obtain informative features from the convolutional filters’ output at a series of stages in the architecture. The final softmax layer determines which class the image belongs to.
 
 ![Image](https://www.researchgate.net/publication/328966158/figure/fig2/AS:693278764720129@1542301946576/An-overview-of-the-VGG-16-model-architecture-this-model-uses-simple-convolutional-blocks.png)
@@ -88,7 +88,9 @@ For each image there are five captions which we turned into sequences by annotat
 ### Training the Image Captioning Decoder Model
 
 #### 1. The Decoder Model
+The image features are passed through a fully-connected layer having 256 hidden units and the captions are passed through an LSTM layer of 256 hidden units. These output vectors of two layers of size 256 are merged and passed through two dense or fully-connected layers. The final dense layer makes a softmax prediction over the entire output vocabulary for the next word in the sequence.
 
+![Image](https://github.com/women-in-ai-ireland/August-2020-WaiLEARN-Image-Caption-Generation/blob/master/Visuals/im.PNG?raw=true)
 
 #### 2. Progressive Loading using Generator Functions
 
