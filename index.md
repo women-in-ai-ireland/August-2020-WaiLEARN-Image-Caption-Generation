@@ -7,7 +7,7 @@ Humans can easily describe what an image is about, but this task so far has been
 
 This project is based on Flick8k dataset from Kaggle which is a subset of Flickr30k. Flick8k contains a total of 8092 images in JPEG format with different shapes and sizes, 6000 of which are used for training, 1000 for testing and another 1000 for development. In our project, we treated 6000 instances for training and 1000 instances for testing, which we split ourselves from the data. We did not use the given sets for training, test and development.
 
-The dataset is available at https://www.kaggle.com/shadabhussain/flickr8k
+The dataset is available at (https://www.kaggle.com/shadabhussain/flickr8k)
 
 ### Data Preparation
 
@@ -99,7 +99,7 @@ Deep learning model training is a time consuming and infrastructurally expensive
 Keras.fit_generator() is used when either we have a huge dataset to fit into our memory or when data augmentation needs to be applied which precisely describes our case. With the progressive loading mechanism, the input creation part was a model training. Though model training without progressive loading couldn't be tested for time consumption, the model training time with progressive loading took approximately 1.5 hours for five epochs and approx. 3.5 hours for 10 epochs using 6k training instances.
 
 #### 3. AWS Sagemaker to Scale Training Instances
-Since Google Collab failed to run for a long time due to session expirations, we resorted to AWS Sagemaker for running our notebook. We used ml.t3.xlarge notebook (4 vCPU & 16 GB Memory) with 50 GB EBS Volume Size. With 5 GB EBS, the notebook was running into memory issues before progressive loading. To find more about using the right notebook instances and associated pricing, refer https://aws.amazon.com/sagemaker/pricing/.
+Since Google Collab failed to run for a long time due to session expirations, we resorted to AWS Sagemaker for running our notebook. We used ml.t3.xlarge notebook (4 vCPU & 16 GB Memory) with 50 GB EBS Volume Size. With 5 GB EBS, the notebook was running into memory issues before progressive loading. To find more about using the right notebook instances and associated pricing, refer (https://aws.amazon.com/sagemaker/pricing/).
 
 ### Results
 
