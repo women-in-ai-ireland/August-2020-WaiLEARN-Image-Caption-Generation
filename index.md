@@ -1,7 +1,7 @@
 ## Welcome to Image Captioning with Keras Project
 
 ### Introduction
-Humans can easily describe what an image is about, but this task so far has been very difficult for machines to perform. Just a few years ago, this kind of task was considered inconceivable to be done by a machine. With the incredible evolution of processing infrastructure for deep learning and recurrent neural networks, we can now combine computer vision and language processing techniques to recognise components of an image and make a progrom describe them in English language.
+Humans can easily describe what an image is about, but this task so far has been very difficult for machines to perform. Just a few years ago, this kind of task was considered inconceivable for a machine. With the incredible evolution of processing infrastructure for deep learning modela, we can now combine computer vision and natural language processing techniques to recognise components of an image and make a program describe them in English language. The objective of this exercise is to use the [Flickr8k dataset](https://www.kaggle.com/shadabhussain/flickr8k) and build a deep learning model that identifies objects in an image and automatically produces captions for them.
 
 ### Dataset Description
 
