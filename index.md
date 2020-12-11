@@ -7,7 +7,7 @@ Humans can easily describe what an image is about, but this task so far has been
 
 This project is based on Flick8k dataset from Kaggle which is a subset of Flickr30k. Flick8k contains a total of 8092 images in JPEG format with different shapes and sizes, 6000 of which are used for training, 1000 for testing and another 1000 for development. In our project, we treated 6000 instances for training and 1000 instances for testing, which we split ourselves from the data. We did not use the given sets for training, test and development.
 
-The dataset is available at (https://www.kaggle.com/shadabhussain/flickr8k)
+The dataset is available at [https://www.kaggle.com/shadabhussain/flickr8k](https://www.kaggle.com/shadabhussain/flickr8k)
 
 ### Data Preparation
 
@@ -94,12 +94,12 @@ The image features are passed through a fully-connected layer having 256 hidden 
 
 #### 2. Progressive Loading using Generator Functions
 
-Deep learning model training is a time consuming and infrastructurally expensive job which we experienced first with 30k images in the Flickr Dataset and so we reduced that to 8k images only. We used Google Collab to speed up performances using 12GB RAM allocation with 30 GB disk space available. Still, preparing the input & output sequences and corresponding the image features for the decoder model. Therefore, we started using generator functions and leveraged [Keras.fit_generator()] (https://www.geeksforgeeks.org/keras-fit-and-keras-fit_generator/)
+Deep learning model training is a time consuming and infrastructurally expensive job which we experienced first with 30k images in the Flickr Dataset and so we reduced that to 8k images only. We used Google Collab to speed up performances using 12GB RAM allocation with 30 GB disk space available. Still, preparing the input & output sequences and corresponding the image features for the decoder model. Therefore, we started using generator functions and leveraged [Keras.fit_generator](https://www.geeksforgeeks.org/keras-fit-and-keras-fit_generator/)
 
 Keras.fit_generator() is used when either we have a huge dataset to fit into our memory or when data augmentation needs to be applied which precisely describes our case. With the progressive loading mechanism, the input creation part was a model training. Though model training without progressive loading couldn't be tested for time consumption, the model training time with progressive loading took approximately 1.5 hours for five epochs and approx. 3.5 hours for 10 epochs using 6k training instances.
 
 #### 3. AWS Sagemaker to Scale Training Instances
-Since Google Collab failed to run for a long time due to session expirations, we resorted to AWS Sagemaker for running our notebook. We used ml.t3.xlarge notebook (4 vCPU & 16 GB Memory) with 50 GB EBS Volume Size. With 5 GB EBS, the notebook was running into memory issues before progressive loading. To find more about using the right notebook instances and associated pricing, refer (https://aws.amazon.com/sagemaker/pricing/).
+Since Google Collab failed to run for a long time due to session expirations, we resorted to AWS Sagemaker for running our notebook. We used ml.t3.xlarge notebook (4 vCPU & 16 GB Memory) with 50 GB EBS Volume Size. With 5 GB EBS, the notebook was running into memory issues before progressive loading. To find more about using the right notebook instances and associated pricing, refer [https://aws.amazon.com/sagemaker/pricing/](https://aws.amazon.com/sagemaker/pricing/).
 
 ### Results
 
@@ -162,7 +162,7 @@ BLEU-4: 0.041060
 
 ### Conclusion
 
-The project was really helpful in understanding how CNNs work to identify image contents. We used pre-trained models like VGG and Inception_Resnet_v2 to extract image features and so we learnt about their architectures and how they work. To train and predict image captions, we also worked on implementing LSTM and some basic cleaning texts using Natural Lanaguage Processing techniques. One the basic challenges all the way was to process so many images and extracted features which forced us to move towards cloud infrastructure. Most of us also were coding for the first time with Keras and thus this was a great hands-on practice on coding deep learning models using Python & Keras modules. The overall results were not very good and so, in terms of future work, the model could be trained on 30k images dataset to improve the results.
+The project was really helpful in understanding how CNNs work to identify image contents. We used pre-trained models like VGG and Inception_Resnet_v2 to extract image features and so we learnt about their architectures and how they work. To train and predict image captions, we also worked on implementing LSTM and some basic cleaning texts using Natural Lanaguage Processing techniques. One the basic challenges all the way was to process so many images and extracted features which forced us to move towards cloud infrastructure. Most of us also were coding for the first time with Keras and thus this was a great hands-on practice on coding deep learning models using Python & Keras modules, especially how to work with generator functions and how they are used to overcome big data challenges.
 
 ### References
 
